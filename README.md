@@ -80,3 +80,12 @@ Project Information
 ## Tests
 
 'php artisan test'
+
+
+## Docker Dev
+docker compose up -d --build
+docker compose exec app composer install
+docker compose exec app php art5isan key:generate --show # past into .env.docker, then:
+docker compose up -d
+docker compose exec app php artisan migrate --seed
+# App: http://localhost:8080 API http://localhost:8080/api/tasks
